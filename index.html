@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Mualif</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+
+    /* Fade Animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Smooth hover scale */
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    /* Button glow effect */
+    .glow:hover {
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+  </style>
+</head>
+
+<body id="body" class="transition-colors duration-500">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 border-b">
+    <h1 class="text-lg font-semibold">Mualif.dev</h1>
+
+    <div class="flex items-center gap-6">
+      <ul class="hidden md:flex gap-6 text-sm">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Toggle -->
+      <button id="themeToggle" class="border px-3 py-1 rounded-lg text-sm glow">
+        🌙
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
+
+    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border mb-6 hover-scale">
+      <img src="img/profile.jpg" class="w-full h-full object-cover">
+    </div>
+
+    <h2 class="text-3xl md:text-5xl font-semibold mb-3">Halo, Saya Mualif</h2>
+    <p class="opacity-70 mb-6">Web Developer • Laravel • JavaScript</p>
+
+    <a href="#projects" class="px-5 py-2 border rounded-lg hover-scale glow">
+      Lihat Project
+    </a>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-3xl mx-auto px-6 py-16 text-center fade-in">
+    <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
+    <p class="opacity-70">
+      Saya adalah mahasiswa Informatika yang fokus pada pengembangan web modern menggunakan Laravel dan JavaScript.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="max-w-5xl mx-auto px-6 py-16">
+    <h2 class="text-2xl font-semibold mb-8 text-center fade-in">Project</h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <div class="p-5 border rounded-xl hover-scale fade-in">
+        <h3 class="font-semibold mb-2">Sistem Surat Desa</h3>
+        <p class="text-sm opacity-70">Aplikasi Laravel</p>
+      </div>
+
+      <div class="p-5 border rounded-xl hover-scale fade-in">
+        <h3 class="font-semibold mb-2">Website Sekolah</h3>
+        <p class="text-sm opacity-70">Website profil</p>
+      </div>
+
+      <div class="p-5 border rounded-xl hover-scale fade-in">
+        <h3 class="font-semibold mb-2">SPK Fuzzy AHP</h3>
+        <p class="text-sm opacity-70">Sistem keputusan</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="text-center px-6 py-16 border-t fade-in">
+    <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+    <p class="opacity-70">Email: mualif@email.com</p>
+    <p class="opacity-70">Instagram: @mualif.dev</p>
+  </section>
+
+  <footer class="text-center text-sm opacity-50 py-6">
+    © 2026 Mualif
+  </footer>
+
+  <script>
+    // Intersection Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+
+    // Dark Mode PRO
+    const body = document.getElementById("body");
+    const toggleBtn = document.getElementById("themeToggle");
+
+    function setTheme(mode) {
+      if (mode === "dark") {
+        body.className = "bg-gray-950 text-gray-100 transition-colors duration-500";
+        toggleBtn.textContent = "🌙";
+      } else {
+        body.className = "bg-white text-gray-900 transition-colors duration-500";
+        toggleBtn.textContent = "☀️";
+      }
+      localStorage.setItem("theme", mode);
+    }
+
+    // Load saved / system preference
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      const current = localStorage.getItem("theme");
+      setTheme(current === "dark" ? "light" : "dark");
+    });
+  </script>
+
+</body>
+</html>
