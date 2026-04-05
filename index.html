@@ -3,14 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio Mualif</title>
+  <title>Mualif | Web Developer</title>
+
+  <!-- Google Font (Modern / Game Style) -->
+  <!-- Google Font (8-bit / Retro Game Style) -->
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Fade Animation */
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* 8-bit font for headings */
+    h1, h2, h3 {
+      font-family: 'Press Start 2P', cursive;
+      letter-spacing: 1px;
+      line-height: 1.6;
+    }
+
+    /* Optional: make small text more readable */
+    p, a, span {
+      font-size: 14px;
+    }
+
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -22,18 +41,62 @@
       transform: translateY(0);
     }
 
-    /* Smooth hover scale */
-    .hover-scale {
-      transition: transform 0.3s ease;
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); }
+
+    .glow:hover { box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+
+    /* Pixel text effect */
+    .pixel {
+      text-shadow: 2px 2px 0 rgba(255,255,255,0.2);
     }
 
-    .hover-scale:hover {
-      transform: scale(1.05);
+    html { scroll-behavior: smooth; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
     }
 
-    /* Button glow effect */
-    .glow:hover {
-      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hover-scale { transition: transform 0.3s ease; }
+    .hover-scale:hover { transform: scale(1.05); }
+
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-8px); }
+
+    .glow:hover { box-shadow: 0 0 20px rgba(255,255,255,0.2); }
+
+ .typing-cursor {
+      display: inline-block;
+      margin-left: 4px;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%,50%,100% { opacity:1 }
+      25%,75% { opacity:0 }
+    }
+
+    .glitch {
+      animation: glitch 0.3s;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px,2px); }
+      40% { transform: translate(2px,-2px); }
+      60% { transform: translate(-2px,0); }
+      80% { transform: translate(2px,2px); }
+      100% { transform: translate(0); }
     }
   </style>
 </head>
@@ -44,72 +107,182 @@
   <nav class="flex justify-between items-center px-6 py-4 border-b">
     <h1 class="text-lg font-semibold">Mualif.dev</h1>
 
-    <div class="flex items-center gap-6">
+    <div class="flex items-center gap-4">
       <ul class="hidden md:flex gap-6 text-sm">
         <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skill</a></li>
+        <li><a href="#projects">Project</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
-      <!-- Toggle -->
-      <button id="themeToggle" class="border px-3 py-1 rounded-lg text-sm glow">
-        🌙
-      </button>
+      <button id="themeToggle" class="border px-3 py-1 rounded-lg text-sm">🌙</button>
     </div>
   </nav>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section id="home" class="min-h-screen flex flex-col items-center justify-center text-center px-6 fade-in">
 
-    <div class="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border mb-6 hover-scale">
+    <div class="w-32 h-32 rounded-full overflow-hidden border mb-6 hover-scale">
       <img src="img/profile.jpg" class="w-full h-full object-cover">
     </div>
-
-    <h2 class="text-3xl md:text-5xl font-semibold mb-3">Halo, Saya Mualif</h2>
-    <p class="opacity-70 mb-6">Web Developer • Laravel • JavaScript</p>
-
-    <a href="#projects" class="px-5 py-2 border rounded-lg hover-scale glow">
-      Lihat Project
+<h2 class="text-lg sm:text-xl md:text-4xl font-semibold mb-3 pixel whitespace-nowrap">
+  Saya Mualif
+</h2>
+  
+ <h2 class="text-xl md:text-4xl font-semibold mb-3 pixel whitespace-nowrap">
+      <span id="typing"></span><span class="typing-cursor">|</span>
+    </h2>
+    <a href="https://wa.me/6283169821525" target="_blank"
+      class="px-6 py-3 border rounded-lg hover-scale glow">
+      Hire Me
     </a>
   </section>
 
-  <!-- About -->
-  <section id="about" class="max-w-3xl mx-auto px-6 py-16 text-center fade-in">
-    <h2 class="text-2xl font-semibold mb-4">Tentang Saya</h2>
-    <p class="opacity-70">
-      Saya adalah mahasiswa Informatika yang fokus pada pengembangan web modern menggunakan Laravel dan JavaScript.
-    </p>
-  </section>
+  <!-- SKILLS -->
+<section id="skills" class="text-center py-16 fade-in">
+  <h2 class="text-2xl font-semibold mb-6">Skill</h2>
 
-  <!-- Projects -->
+  <div class="flex flex-wrap justify-center gap-6 text-center">
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="w-8 h-8">
+      <span>HTML</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="w-8 h-8">
+      <span>CSS</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="w-8 h-8">
+      <span>JavaScript</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" class="w-8 h-8">
+      <span>PHP</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" class="w-8 h-8">
+      <span>Laravel</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="w-8 h-8">
+      <span>MySQL</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="w-8 h-8">
+      <span>Node.js</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" class="w-8 h-8 bg-white rounded">
+      <span>Express</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="w-8 h-8">
+      <span>Git</span>
+    </div>
+
+    <div class="flex flex-col items-center gap-2">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="w-8 h-8">
+      <span>GitHub</span>
+    </div>
+
+  </div>
+</section>
+
+  <!-- PROJECTS -->
   <section id="projects" class="max-w-5xl mx-auto px-6 py-16">
     <h2 class="text-2xl font-semibold mb-8 text-center fade-in">Project</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
 
-      <div class="p-5 border rounded-xl hover-scale fade-in">
+      <div class="p-5 border rounded-xl card-hover fade-in">
         <h3 class="font-semibold mb-2">Sistem Surat Desa</h3>
-        <p class="text-sm opacity-70">Aplikasi Laravel</p>
+        <p class="text-sm opacity-70">Aplikasi pengajuan surat online berbasis Laravel</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
       </div>
 
-      <div class="p-5 border rounded-xl hover-scale fade-in">
+      <div class="p-5 border rounded-xl card-hover fade-in">
         <h3 class="font-semibold mb-2">Website Sekolah</h3>
-        <p class="text-sm opacity-70">Website profil</p>
+        <p class="text-sm opacity-70">Website profil sekolah modern</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
       </div>
 
-      <div class="p-5 border rounded-xl hover-scale fade-in">
+      <div class="p-5 border rounded-xl card-hover fade-in">
         <h3 class="font-semibold mb-2">SPK Fuzzy AHP</h3>
-        <p class="text-sm opacity-70">Sistem keputusan</p>
+        <p class="text-sm opacity-70">Sistem pendukung keputusan</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
+      </div>
+
+      <div class="p-5 border rounded-xl card-hover fade-in">
+        <h3 class="font-semibold mb-2">Sistem Surat Desa</h3>
+        <p class="text-sm opacity-70">Aplikasi pengajuan surat online berbasis Laravel</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
+      </div>
+
+      <div class="p-5 border rounded-xl card-hover fade-in">
+        <h3 class="font-semibold mb-2">Website Sekolah</h3>
+        <p class="text-sm opacity-70">Website profil sekolah modern</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
+      </div>
+
+      <div class="p-5 border rounded-xl card-hover fade-in">
+        <h3 class="font-semibold mb-2">SPK Fuzzy AHP</h3>
+        <p class="text-sm opacity-70">Sistem pendukung keputusan</p>
+
+        <div class="mt-3 flex gap-3 text-sm">
+          <a href="#" class="underline">Demo</a>
+          <a href="#" class="underline">GitHub</a>
+        </div>
       </div>
 
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- CTA -->
+  <section class="text-center py-16 fade-in">
+    <h2 class="text-2xl font-semibold mb-4">Butuh Website?</h2>
+    <p class="opacity-70 mb-6">
+      Saya siap membantu membuat website untuk bisnis atau organisasi Anda.
+    </p>
+
+    <a href="https://wa.me/6283169821525" target="_blank"
+      class="px-6 py-3 border rounded-lg hover-scale glow">
+      Hubungi Saya
+    </a>
+  </section>
+
+  <!-- CONTACT -->
   <section id="contact" class="text-center px-6 py-16 border-t fade-in">
     <h2 class="text-2xl font-semibold mb-4">Contact</h2>
-    <p class="opacity-70">Email: mualif@email.com</p>
+    <p class="opacity-70">Email: mualif2310@gmail.com</p>
     <p class="opacity-70">Instagram: @mualif.dev</p>
   </section>
 
@@ -118,7 +291,7 @@
   </footer>
 
   <script>
-    // Intersection Observer
+    // Animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -144,7 +317,6 @@
       localStorage.setItem("theme", mode);
     }
 
-    // Load saved / system preference
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
@@ -157,6 +329,78 @@
       const current = localStorage.getItem("theme");
       setTheme(current === "dark" ? "light" : "dark");
     });
+
+
+  const texts = ["Software Engineer","Web Developer","Freelancer","Problem Solver"];
+    const typingEl = document.getElementById("typing");
+
+    let textIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeLoop() {
+      const currentText = texts[textIndex];
+
+      if (isDeleting) {
+        charIndex--;
+      } else {
+        charIndex++;
+      }
+
+      typingEl.textContent = currentText.substring(0, charIndex);
+
+      let speed = isDeleting ? 50 : 100;
+
+      if (!isDeleting && charIndex === currentText.length) {
+        typingEl.classList.add("glitch");
+        setTimeout(() => {
+          typingEl.classList.remove("glitch");
+          isDeleting = true;
+        }, 800);
+        speed = 1500;
+      } 
+      else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        speed = 300;
+      }
+
+      setTimeout(typeLoop, speed);
+    }
+
+    // Simple typing sound (8-bit style)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playClick() {
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      osc.type = "square"; // retro feel
+      osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+
+      gain.gain.setValueAtTime(0.05, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start();
+      osc.stop(audioCtx.currentTime + 0.05);
+    }
+
+    // Modify typing loop to include sound
+    const originalTypeLoop = typeLoop;
+    function typeLoopWithSound() {
+      playClick();
+      originalTypeLoop();
+    }
+
+    window.addEventListener("click", () => {
+      audioCtx.resume(); // unlock audio on user interaction
+    }, { once: true });
+
+    window.addEventListener("DOMContentLoaded", typeLoopWithSound);
+
   </script>
 
 </body>
